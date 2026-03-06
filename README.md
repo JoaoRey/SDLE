@@ -4,7 +4,6 @@
 1. [Project overview](./doc/projectOverview.md)
 2. [Build and Run Instructions](./doc/buildAndRunInstructions.md)
 3. [Presentation PDF](./doc/presentation.pdf)
-4. [Demo Video](https://drive.google.com/file/d/1X-wDnEfE7wtqLLzxlFW5DGs4-JN9Eeyb/view?usp=sharing)
 
 SDLE Second Assignment of group T3G04
 
