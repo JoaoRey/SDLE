@@ -1,0 +1,130 @@
+.container {
+  position: fixed;
+  top: 0.75rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+  font-size: 0.85rem;
+  animation: slideDown var(--transition-base);
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all var(--transition-base);
+}
+
+.statusDot.online {
+  background-color: var(--color-success);
+  box-shadow: 0 0 10px var(--color-success-glow), 0 0 20px var(--color-success-glow);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.statusDot.offline {
+  background-color: var(--color-danger);
+  box-shadow: 0 0 8px var(--color-danger-glow);
+}
+
+.statusText {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.pendingBadge {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--color-warning);
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.syncingBadge {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--color-accent-secondary);
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.syncButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-input);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.syncButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-accent-secondary);
+  transform: rotate(45deg);
+}
+
+.syncButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.syncButton.syncing .syncIcon {
+  animation: spin 1s linear infinite;
+}
+
+.syncIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.syncButton:hover:not(:disabled) .syncIcon {
+  color: var(--color-text-primary);
+}
+
+.lastSync {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 48em) {
+  .container {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: var(--radius-lg);
+  }
+
+  .lastSync {
+    display: none;
+  }
+}

@@ -1,0 +1,134 @@
+.container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  min-height: calc(100dvh - var(--topbar-height) - 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: calc(var(--topbar-height) + 1.5rem);
+  animation: fadeIn var(--transition-slow);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  flex: 1 1 0%;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  color: var(--color-text-secondary);
+  animation: fadeIn var(--transition-slow);
+  gap: 1.5rem;
+}
+
+.loadingContainer p {
+  margin: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Custom spinner with yellow accent */
+.loadingSpinner {
+  width: 48px;
+  height: 48px;
+  position: relative;
+}
+
+.loadingSpinner::before,
+.loadingSpinner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid transparent;
+  border-radius: 50%;
+}
+
+.loadingSpinner::before {
+  border-top-color: #ece81a;
+  animation: spin 1s linear infinite;
+}
+
+.loadingSpinner::after {
+  border-bottom-color: rgba(236, 232, 26, 0.3);
+  animation: spin 1s linear infinite reverse;
+}
+
+/* Skeleton loader */
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeletonItem {
+  height: 4rem;
+  background: linear-gradient(90deg,
+      var(--color-bg-input) 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      var(--color-bg-input) 100%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-md);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 48em) {
+  .content {
+    padding: 1.5rem;
+    gap: 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+}
+
+@media (max-width: 30em) {
+  .content {
+    padding: 1.25rem;
+    gap: 1rem;
+    border-radius: var(--radius-md);
+  }
+}

@@ -1,0 +1,6 @@
+# Ignore all .idea directories anywhere under this folder
+**/.idea/
+**/build
+**/.cache
+**/.vscode
+CMakeUserPresets.json

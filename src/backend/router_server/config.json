@@ -1,0 +1,7 @@
+{
+    "endpoint": "tcp://*:5555",
+    "heartbeat_interval_ms": 5000,
+    "heartbeat_timeout_ms": 15000,
+    "retry_after_ms": 1000,
+    "request_timeout_ms": 30000
+}

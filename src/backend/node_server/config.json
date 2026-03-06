@@ -1,0 +1,5 @@
+{
+  "router_endpoint": "tcp://localhost:5555",
+  "data_dir": "./data",
+  "num_vnodes": 4
+}

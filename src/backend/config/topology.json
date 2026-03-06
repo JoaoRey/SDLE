@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "type": "Router",
+      "port": 5555,
+      "endpoint": "tcp://127.0.0.1:5555",
+      "config_file": "config/router_config.json"
+    },
+    {
+      "type": "Node",
+      "port": 8081,
+      "endpoint": "tcp://127.0.0.1:8081",
+      "config_file": "config/node_config.json"
+    },
+    {
+      "type": "Node",
+      "port": 8082,
+      "endpoint": "tcp://127.0.0.1:8082",
+      "config_file": "config/node_config.json"
+    },
+    {
+      "type": "Node",
+      "port": 8083,
+      "endpoint": "tcp://127.0.0.1:8083",
+      "config_file": "config/node_config.json"
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+  margin: auto;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  width: calc(100% - 2rem);
+  max-width: 36rem;
+  position: relative;
+  overflow: hidden;
+  animation: scaleIn var(--transition-slow);
+}
+
+/* Decorative glow */
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.15), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.1), transparent 40%);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+@media (max-width: 48em) {
+  .container {
+    padding: 2rem;
+    gap: 1.75rem;
+  }
+}
+
+.container h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.form {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 30em) {
+  .form {
+    flex-direction: column;
+  }
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-input);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: all var(--transition-base);
+  caret-color: var(--color-accent-primary);
+}
+
+@media (max-width: 30em) {
+  .input {
+    width: 100%;
+  }
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 3px var(--color-border-focus), 0 0 20px var(--color-accent-glow);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.button {
+  padding: 1rem 1.75rem;
+  border: none;
+  border-radius: 0;
+  background: #ece81a;
+  color: #000000;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+@media (max-width: 30em) {
+  .button {
+    width: 100%;
+  }
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), 0 0 30px var(--color-accent-glow);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  position: relative;
+  z-index: 1;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.createButton {
+  padding: 1rem 1.75rem;
+  border: 1px dashed var(--color-accent-secondary);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-accent-secondary);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.createButton:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-style: solid;
+  border-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+}
+
+.existingLists {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.existingLists h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.existingLists ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.existingLists li {
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-input);
+  border: 1px solid transparent;
+  user-select: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.listIcon {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.listId {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.existingLists li:hover {
+  background: rgba(236, 232, 26, 0.1);
+  border-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.pageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-input);
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.pageButton:hover:not(:disabled) {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+}
+
+.pageButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-width: 3rem;
+  text-align: center;
+}
+
+/* Full-screen mobile style */
+@media (max-width: 30em) {
+  .container {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    width: 100%;
+    height: 100dvh;
+    box-sizing: border-box;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1.5rem 1rem;
+    align-items: stretch;
+    justify-content: center;
+    max-width: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: none;
+  }
+
+  .container::before {
+    display: none;
+  }
+}
